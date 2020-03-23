@@ -1,4 +1,4 @@
-namespace StockApp.Data.Entities
+namespace StockManageAPI.Data.Entities
 {
     public interface IEntity
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using StockApp.Data.Entities;
+using StockManageAPI.Data.Entities;
 
 namespace StockManageAPI.Data
 {
@@ -11,6 +11,7 @@ namespace StockManageAPI.Data
         {
         }
         public DbSet<Good> Goods { get; set; }
+        public DbSet<GoodInStock> GoodInStocks { get; set; }
 
     }
 }

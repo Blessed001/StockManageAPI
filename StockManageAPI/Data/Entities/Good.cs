@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace StockApp.Data.Entities
+namespace StockManageAPI.Data.Entities
 {
 	public class Good : IEntity
 	{
@@ -24,11 +24,11 @@ namespace StockApp.Data.Entities
 
         public DateTime DateAdded { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
 
-        //public double Quantity { get { return Inventories == null ? 0 : Inventories.Sum(i => i.Quantity); } }
+        public double Quantity { get { return GoodInStocks == null ? 0 : GoodInStocks.Sum(i => i.Quantity); } }
 
-        //public virtual List<Inventory> Inventories { get; set; }
+        public virtual List<GoodInStock> GoodInStocks { get; set; }
 
     }
 }
