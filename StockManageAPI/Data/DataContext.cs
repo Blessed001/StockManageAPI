@@ -8,8 +8,7 @@ namespace StockManageAPI.Data
     {
         public DataContext(DbContextOptions<DataContext> options)
         : base(options)
-        {
-        }
+        {}
         public DbSet<Good> Goods { get; set; }
         public DbSet<GoodInStock> GoodInStocks { get; set; }
         public DbSet<OperationType> OperationTypes { get; set; }
