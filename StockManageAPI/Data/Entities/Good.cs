@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace StockApp.Data.Entities
 {
-	public class Good //: IEntity
+	public class Good : IEntity
 	{
 		public int Id { get; set; }
 
