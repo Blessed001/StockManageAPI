@@ -12,6 +12,8 @@ namespace StockManageAPI.Data
         }
         public DbSet<Good> Goods { get; set; }
         public DbSet<GoodInStock> GoodInStocks { get; set; }
+        public DbSet<OperationType> OperationTypes { get; set; }
+        public DbSet<Stock> Stocks { get; set; }
 
     }
 }
