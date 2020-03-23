@@ -34,14 +34,14 @@ namespace StockManageAPI.Data
 
         private async Task AddGoodsStocksAndInventoriesAsync()
         {
-            this.AddGoodAndStock("Good 1","Stock 1", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 2","Stock 2", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 3","Stock 3", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 4","Stock 4", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 5","Stock 5", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 6","Stock 6", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 7","Stock 7", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
-            this.AddGoodAndStock("Good 8","Stock 8", new int[] { _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100), _random.Next(100) });
+            this.AddGoodAndStock("Good 1","Stock 1", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 2","Stock 2", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 3","Stock 3", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 4","Stock 4", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 5","Stock 5", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 6","Stock 6", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 7","Stock 7", new int[] { _random.Next(100)});
+            this.AddGoodAndStock("Good 8","Stock 8", new int[] { _random.Next(100)});
             await this.context.SaveChangesAsync();
         }
 
