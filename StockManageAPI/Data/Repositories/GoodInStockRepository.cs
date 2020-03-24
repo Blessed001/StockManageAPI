@@ -11,7 +11,7 @@ namespace StockManageAPI.Data
         private readonly IOperationTypeRepository _operationTypeRepository;
         private readonly DataContext _context;
 
-        public InventoryRepository(DataContext context,
+        public GoodInStockRepository(DataContext context,
                                    IOperationTypeRepository operationTypeRepository
                                    ) : base(context)
 		{
