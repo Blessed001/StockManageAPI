@@ -65,6 +65,7 @@ namespace StockManageAPI.Controllers
 				}
 				else
 				{
+					good.DateEdited = DateTime.Now;
 					await _goodRepository.UpdateAsync(good);
 					return Ok(good);
 				}
@@ -88,6 +89,7 @@ namespace StockManageAPI.Controllers
 				}
 				else
 				{
+					good.DateAdded = DateTime.Now;
 					await _goodRepository.CreateAsync(good);
 					return Created($"/api/good/{good.Id}", good);
 				}
