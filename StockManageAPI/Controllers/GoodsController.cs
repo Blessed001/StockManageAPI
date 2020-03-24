@@ -30,7 +30,7 @@ namespace StockManageAPI.Controllers
         {
             try
 			{
-				return Ok(_goodRepository.GetGoodsWithInventories());
+				return Ok(_goodRepository.GetGoodsWithGoodsIn());
 			}
 			catch (Exception ex)
 			{
@@ -50,7 +50,7 @@ namespace StockManageAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(await _goodRepository.GetGoodsWithInventoriesById(id));
+            return Ok(await _goodRepository.GetGoodsWithGoodsInById(id));
         }
 
         [HttpPut]
