@@ -1,8 +1,9 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using StockManageAPI.Data.Entities;
 
-namespace StockManageAPI.Data.Entities
+namespace StockManageAPI.Data
 {
     public interface IStockRepository:IGenericRepository<Stock>
     {

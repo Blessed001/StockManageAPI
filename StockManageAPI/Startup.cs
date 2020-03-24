@@ -32,7 +32,10 @@ namespace StockManageAPI
             options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<SeedDb>();
 
-            
+            services.AddScoped<IGoodRepository, GoodRepository>();
+            services.AddScoped<IStockRepository, StockRepository>();
+            services.AddScoped<IGoodInStockRepository, GoodInStockRepository>();
+            services.AddScoped<IOperationTypeRepository, OperationTypeRepository>();
 
         }
 
