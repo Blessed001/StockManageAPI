@@ -1,4 +1,3 @@
-using System;
 using StockManageAPI.Data.Entities;
 
 namespace StockManageAPI.Data

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using StockManageAPI.Data.Entities;
 
 namespace StockManageAPI.Data

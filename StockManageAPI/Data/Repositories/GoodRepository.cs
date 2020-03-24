@@ -1,13 +1,11 @@
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using StockManageAPI.Data.Entities;
 
 namespace StockManageAPI.Data
 {
-	public class GoodRepository : GenericRepository<Good>, IGoodRepository
+    public class GoodRepository : GenericRepository<Good>, IGoodRepository
 	{
         private readonly DataContext _context;
 
