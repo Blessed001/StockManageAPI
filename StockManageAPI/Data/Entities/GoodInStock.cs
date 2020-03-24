@@ -10,7 +10,5 @@ namespace StockManageAPI.Data.Entities
         public int StockIdTo { get; set; }
         public DateTime DateAdded { get; set; }
         public DateTime DateEddited { get; set; }
-
-
     }
 }
