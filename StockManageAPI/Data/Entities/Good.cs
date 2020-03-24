@@ -23,7 +23,6 @@ namespace StockManageAPI.Data.Entities
 		public double Volume { get; set; }
 
         public DateTime DateAdded { get; set; }
-		public DateTime? DateEdited { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = false)]
 

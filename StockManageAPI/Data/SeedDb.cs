@@ -47,19 +47,17 @@ namespace StockManageAPI.Data
 
         private void AddGoodAndStock(string good, string stock, int[] goodInStocks)
         {
-            var theGoodInStocks = goodInStocks.Select(i => new GoodInStock { Quantity = i, DateAdded = DateTime.Now }).ToList();
+            var theGoodInStocks = goodInStocks.Select(i => new GoodInStock { Quantity = i }).ToList();
             this.context.Goods.Add(new Good
             {
                 GoodInStocks = theGoodInStocks,
-                Name = good,
-                DateAdded = DateTime.Now
+                Name = good
             });
 
             this.context.Stocks.Add(new Stock
             {
                 GoodInStocks = theGoodInStocks,
-                Name = stock,
-                DateAdded = DateTime.Now
+                Name = stock
             });
         }
 
