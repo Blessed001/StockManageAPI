@@ -8,7 +8,7 @@ namespace StockManageAPI.Data
     public interface IGoodInStockRepository:IGenericRepository<GoodInStock>
     {
         Task DoOperation(int id,GoodInStock goodInStock);
-        bool ValidateGood(GoodInStock goodInStock);
+        protected bool ValidateGood(GoodInStock goodInStock);
     }
 
 }

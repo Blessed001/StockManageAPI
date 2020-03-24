@@ -1,10 +1,10 @@
 ﻿using System;
 namespace StockManageAPI.Data.Entities
 {
-    public class LogOperation
+    public class Operation : IEntity
     {
-        public LogOperation()
-        {
-        }
+        public int Id { get; set; }
+        public int OperationTypeId { get; set; }
+        public DateTime DateAdded { get; set; }
     }
 }

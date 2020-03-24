@@ -30,11 +30,14 @@ namespace StockManageAPI.Data
                 if(duplicate == null)
                 {
                     await CreateAsync(goodInStock);
+                    OperationLog(idOperation);
                 }
                 else
                 {
                     duplicate.Quantity += goodInStock.Quantity;
                     await UpdateAsync(duplicate);
+                    OperationLog(idOperation);
+
                 }
 
             }
@@ -43,7 +46,8 @@ namespace StockManageAPI.Data
 
                 duplicate.Quantity -= goodInStock.Quantity;
                 await UpdateAsync(duplicate);
-                
+                OperationLog(idOperation);
+
             }
             else
             {
@@ -57,15 +61,19 @@ namespace StockManageAPI.Data
 
                     };
                     await CreateAsync(goodInStockTo);
+                    OperationLog(idOperation);
+
                 }
                 else
                 {
                     duplicateTo.Quantity += goodInStock.Quantity;
                     await UpdateAsync(duplicate);
+                    OperationLog(idOperation);
                 }
 
                 duplicate.Quantity -= goodInStock.Quantity;
                 await UpdateAsync(duplicate);
+
             }
         }
 
@@ -89,6 +97,17 @@ namespace StockManageAPI.Data
             {
                 return false;
             }
+        }
+
+        private void OperationLog(int idOperation)
+        {
+            var operationLog = new Operation
+            {
+                OperationTypeId = idOperation,
+                DateAdded = DateTime.Now
+            };
+            _context.Operations.Add(operationLog);
+            _context.SaveChanges();
         }
     }
 
