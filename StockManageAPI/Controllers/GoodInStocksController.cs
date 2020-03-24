@@ -64,12 +64,12 @@ namespace StockManageAPI.Controllers
             return Ok(await _goodInStockRepository.GetByIdAsync(id));
         }
 
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="idOperation"></param>
-       /// <param name="goodInStock"></param>
-       /// <returns>Create operations</returns>
+        /// <summary>
+        /// for test use idOperation {"Внутреннее перемещение": 1, "Расход": 2,"Приход": 3} -> check OperationTipe model
+        /// </summary>
+        /// <param name="idOperation"></param>
+        /// <param name="goodInStock"></param>
+        /// <returns>Create operations</returns>
         [HttpPost("{idOperation}")]
         public async Task<ActionResult<GoodInStock>> DoOPeration([FromRoute]int idOperation,[FromBody]GoodInStock goodInStock)
         {
