@@ -29,11 +29,13 @@ namespace StockManageAPI.Data
             {
                 if(duplicate == null)
                 {
+                    goodInStock.DateAdded = DateTime.Now;
                     await CreateAsync(goodInStock);
                     OperationLog(idOperation);
                 }
                 else
                 {
+                    duplicate.DateEdited = DateTime.Now;
                     duplicate.Quantity += goodInStock.Quantity;
                     await UpdateAsync(duplicate);
                     OperationLog(idOperation);
@@ -43,7 +45,7 @@ namespace StockManageAPI.Data
             }
             else if (operation.Name == "Расход" && duplicate != null)
             {
-
+                duplicate.DateEdited = DateTime.Now;
                 duplicate.Quantity -= goodInStock.Quantity;
                 await UpdateAsync(duplicate);
                 OperationLog(idOperation);
@@ -57,8 +59,8 @@ namespace StockManageAPI.Data
                     {
                         Quantity = goodInStock.Quantity,
                         GoodId = goodInStock.GoodId,
-                        StockId = goodInStock.StockIdTo
-
+                        StockId = goodInStock.StockIdTo,
+                        DateAdded = DateTime.Now
                     };
                     await CreateAsync(goodInStockTo);
                     OperationLog(idOperation);
@@ -66,12 +68,14 @@ namespace StockManageAPI.Data
                 }
                 else
                 {
+                    duplicateTo.DateEdited = DateTime.Now;
                     duplicateTo.Quantity += goodInStock.Quantity;
-                    await UpdateAsync(duplicate);
+                    await UpdateAsync(duplicateTo);
                     OperationLog(idOperation);
                 }
 
                 duplicate.Quantity -= goodInStock.Quantity;
+                duplicate.DateEdited = DateTime.Now;
                 await UpdateAsync(duplicate);
 
             }

@@ -65,6 +65,7 @@ namespace StockManageAPI.Controllers
 				}
 				else
 				{
+					stock.DateEdited = DateTime.Now;
 					await _stockRepository.UpdateAsync(stock);
 					return Ok(stock);
 				}
@@ -88,6 +89,7 @@ namespace StockManageAPI.Controllers
 				}
 				else
 				{
+					stock.DateAdded = DateTime.Now;
 					await _stockRepository.CreateAsync(stock);
 					return Created($"/api/stock/{stock.Id}", stock);
 				}
