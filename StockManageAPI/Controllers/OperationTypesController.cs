@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using StockApp.Data;
-using StockApp.Data.Entities;
+using StockManageAPI.Data;
+using StockManageAPI.Data.Entities;
 
-namespace StockApp.Controllers
+namespace StockManageAPI.Controllers
 {
     [Produces("application/json")]
 	[ApiController]
