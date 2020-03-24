@@ -16,13 +16,17 @@ namespace StockManageAPI.Data
             _random = new Random();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Send data to db on stat application</returns>
          public async Task SeedAsync()
         {
             await this.context.Database.EnsureCreatedAsync();
 
             if (!this.context.Stocks.Any() && !this.context.Goods.Any())
             {
-                await this.AddGoodsStocksAndInventoriesAsync();
+                await this.AddGoodsStocksAndGoodInStockAsync();
             }
 
             if (!this.context.OperationTypes.Any())
@@ -32,7 +36,8 @@ namespace StockManageAPI.Data
 
         }
 
-        private async Task AddGoodsStocksAndInventoriesAsync()
+
+        private async Task AddGoodsStocksAndGoodInStockAsync()
         {
             this.AddGoodAndStock("Good 1","Stock 1", new int[] { _random.Next(100)});
             this.AddGoodAndStock("Good 2","Stock 2", new int[] { _random.Next(100)});
@@ -45,6 +50,12 @@ namespace StockManageAPI.Data
             await this.context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Add good, stock and goodsInStock to db
+        /// </summary>
+        /// <param name="good"></param>
+        /// <param name="stock"></param>
+        /// <param name="goodInStocks"></param>
         private void AddGoodAndStock(string good, string stock, int[] goodInStocks)
         {
             var theGoodInStocks = goodInStocks.Select(i => new GoodInStock { Quantity = i, DateAdded = DateTime.Now }).ToList();
@@ -63,6 +74,10 @@ namespace StockManageAPI.Data
             });
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>AddOperationType to db</returns>
         private async Task AddOperationTypeAsync()
         {
             this.context.OperationTypes.Add(new OperationType

@@ -22,8 +22,11 @@ namespace StockManageAPI.Controllers
             _logger = logger;
         }
 
-        // GET: api/Goods
-        [HttpGet]
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns>All Goods</returns>
+		[HttpGet]
 		[ProducesResponseType(200)]
 		[ProducesResponseType(404)]
         public ActionResult<IEnumerable<Good>> GetGoods()
@@ -39,7 +42,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
-        // GET: api/Goods/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Good by Id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Good>> GetGood(int id)
         {
@@ -53,7 +60,12 @@ namespace StockManageAPI.Controllers
             return Ok(await _goodRepository.GetGoodsWithGoodsInById(id));
         }
 
-        [HttpPut]
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="good"></param>
+		/// <returns>Update good</returns>
+		[HttpPut]
         public async Task<ActionResult<Good>> PutGood([FromBody]Good good)
         {
             try
@@ -76,7 +88,11 @@ namespace StockManageAPI.Controllers
 				return BadRequest();
 			}
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="good"></param>
+        /// <returns>Add good</returns>
         [HttpPost]
         public async Task<ActionResult<Good>> PostGood([FromBody]Good good)
         {
@@ -101,7 +117,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
-        // // DELETE: api/Goods/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>delete good</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Good>> DeleteGood(int id)
         {

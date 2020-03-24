@@ -26,7 +26,10 @@ namespace StockManageAPI.Controllers
             _logger = logger;
         }
 
-        // GET: api/Inventories
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>All GoodInStocks</returns>
         [HttpGet]
 		[ProducesResponseType(200)]
 		[ProducesResponseType(404)]
@@ -43,7 +46,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
-        // GET: api/Inventories/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>GoodInStock by Id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<GoodInStock>> GetGoodInStock(int id)
         {
@@ -57,7 +64,12 @@ namespace StockManageAPI.Controllers
             return Ok(await _goodInStockRepository.GetByIdAsync(id));
         }
 
-       
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="idOperation"></param>
+       /// <param name="goodInStock"></param>
+       /// <returns>Create operations</returns>
         [HttpPost("{idOperation}")]
         public async Task<ActionResult<GoodInStock>> DoOPeration([FromRoute]int idOperation,[FromBody]GoodInStock goodInStock)
         {

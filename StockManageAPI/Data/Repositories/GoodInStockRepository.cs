@@ -19,12 +19,19 @@ namespace StockManageAPI.Data
             _context = context;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idOperation"></param>
+        /// <param name="goodInStock"></param>
+        /// <returns>do operations in stocks</returns>
         public async Task DoOperation(int idOperation, GoodInStock goodInStock)
         {
             var operation = await _operationTypeRepository.GetByIdAsync(idOperation);
             var duplicate = await _context.GoodInStocks.Where(i => i.GoodId == goodInStock.GoodId && i.StockId == goodInStock.StockId).FirstOrDefaultAsync();
             var duplicateTo = await _context.GoodInStocks.Where(i => i.GoodId == goodInStock.GoodId && i.StockId == goodInStock.StockIdTo).FirstOrDefaultAsync();
 
+           
             if(operation.Name == "Приход")
             {
                 if(duplicate == null)
@@ -81,6 +88,11 @@ namespace StockManageAPI.Data
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="goodInStock"></param>
+        /// <returns>Validate good</returns>
         public bool ValidateGood(GoodInStock goodInStock)
         {
             var duplicate = _context.GoodInStocks.Where(i => i.GoodId == goodInStock.GoodId && i.StockId == goodInStock.StockId).FirstOrDefault();
@@ -103,6 +115,10 @@ namespace StockManageAPI.Data
             }
         }
 
+        /// <summary>
+        /// Add log operation
+        /// </summary>
+        /// <param name="idOperation"></param>
         private void OperationLog(int idOperation)
         {
             var operationLog = new Operation

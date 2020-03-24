@@ -21,6 +21,10 @@ namespace StockManageAPI.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>All operations</returns>
         [HttpGet]
 		[ProducesResponseType(200)]
 		[ProducesResponseType(404)]

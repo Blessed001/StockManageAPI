@@ -22,7 +22,10 @@ namespace StockManageAPI.Controllers
             _logger = logger;
         }
 
-        // GET: api/Stocks
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>All stocks</returns>
         [HttpGet]
 		[ProducesResponseType(200)]
 		[ProducesResponseType(404)]
@@ -39,7 +42,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
-        // GET: api/Stocks/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Stock by id</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Stock>> GetStock(int id)
         {
@@ -53,6 +60,11 @@ namespace StockManageAPI.Controllers
             return Ok(await _stockRepository.GetStocksWithGoodsInById(id));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stock"></param>
+        /// <returns>Update stock</returns>
         [HttpPut]
         public async Task<ActionResult<Stock>> PutStock([FromBody]Stock stock)
         {
@@ -77,6 +89,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="stock"></param>
+        /// <returns>Add stock</returns>
         [HttpPost]
         public async Task<ActionResult<Stock>> PostStock([FromBody]Stock stock)
         {
@@ -101,7 +118,11 @@ namespace StockManageAPI.Controllers
 			}
         }
 
-        // // DELETE: api/Stocks/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>delete stock</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Stock>> DeleteStock(int id)
         {
