@@ -16,12 +16,12 @@ namespace StockManageAPI.Data
             _context = context;
         }
 
-        public IQueryable GetGoodsWithInventories()
+        public IQueryable GetGoodsWithGoodsIn()
         {
            return _context.Goods.Include(g => g.GoodInStocks);
         }
 
-        public Task<Good> GetGoodsWithInventoriesById(int id)
+        public Task<Good> GetGoodsWithGoodsInById(int id)
         {
             return _context.Goods.Include(g => g.GoodInStocks).Where(g => g.Id==id).FirstAsync();
         }

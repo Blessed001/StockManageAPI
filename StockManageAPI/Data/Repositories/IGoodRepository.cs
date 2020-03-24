@@ -7,7 +7,7 @@ namespace StockManageAPI.Data
 {
     public interface IGoodRepository:IGenericRepository<Good>
     {
-        public IQueryable GetGoodsWithInventories();
-        Task<Good> GetGoodsWithInventoriesById(int id);
+        public IQueryable GetGoodsWithGoodsIn();
+        Task<Good> GetGoodsWithGoodsInById(int id);
     }
 }
