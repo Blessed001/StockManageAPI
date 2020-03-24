@@ -1,0 +1,20 @@
+                        Инструкция для установки
+
+1 - В файл StockManageAPI.appsettings.json изменить conectionString(PostgreSql) для подключения к базе данных согласно с ваше
+
+ "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=stocckmanagedb;Username=postgres;Password=12Vaka@*;Integrated Security=true;Pooling=true;"
+  }
+ 
+2 - Выполняйте следующие команды (dotnet ef migrations add InitialCreate далее dotnet ef database update) через командную строку в корневую папку проекта  для создания миграции и базы данных;
+
+3 - Запускайте приложение;
+
+4 - При запуске приложения автоматически добавляются тестовые данные в базу данных;
+
+5 - После запуска переходите по ссылке https://localhost:5001/swagger . Возможно у вас сформируется другая ссылка, переходите по этой ссылке + /swagger;
+
+6 - Если будут вопросы можно связываться со мной:
+
+Phone и WhatsApp: +7(918)121-21-41 - Дионисио
+
